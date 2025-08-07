@@ -1,7 +1,7 @@
 ## context/vector_context.py
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from context.interfaces import IContextRetriever
+from src.context.interfaces import IContextRetriever
 
 class VectorContextRetriever(IContextRetriever):
     def __init__(self):

@@ -1,6 +1,6 @@
 ## context/rag_engine.py
 from pypdf import PdfReader
-from context.interfaces import IContextRetriever
+from src.context.interfaces import IContextRetriever
 def load_pdf_chunks(path: str, chunk_size: int = 200) -> list[str]:
     reader = PdfReader(path)
     text = ""

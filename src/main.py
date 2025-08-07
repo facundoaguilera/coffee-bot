@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from routers.api import router, set_chat_service
-from context.rag_engine import build_index
-from services.chat_service import ChatService
+from src.routers.api import router, set_chat_service
+from src.context.rag_engine import build_index
+from src.services.chat_service import ChatService
 from llm.gemini_generator import GeminiGenerator
 from pathlib import Path
 from contextlib import asynccontextmanager
-from context.vector_context import VectorContextRetriever
+from src.context.vector_context import VectorContextRetriever
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

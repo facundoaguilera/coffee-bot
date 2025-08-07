@@ -1,5 +1,5 @@
 ## llm/gemini_generator.py
-from llm.interfaces import IResponseGenerator
+from src.llm.interfaces import IResponseGenerator
 from google import genai
 from google.genai import types
 import os

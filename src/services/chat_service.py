@@ -1,7 +1,7 @@
 ## services/chat_service.py
 from context.interfaces import IContextRetriever
-from llm.interfaces import IResponseGenerator
-from validators.chat_validator import validate_question
+from src.llm.interfaces import IResponseGenerator
+from src.validators.chat_validator import validate_question
 
 class ChatService:
     def __init__(self, context_retriever: IContextRetriever, generator: IResponseGenerator):
