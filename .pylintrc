@@ -1,0 +1,26 @@
+[MASTER]
+# Agrega la carpeta 'app' al path para que pylint la entienda
+init-hook='import sys; sys.path.append("app")'
+
+# Qué archivos analizar
+ignore=venv,tests
+
+[MESSAGES CONTROL]
+# Desactiva mensajes que suelen ser innecesarios o molestos en la práctica
+disable=
+    missing-docstring,
+    invalid-name,
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-locals,
+    too-many-branches,
+    too-many-statements,
+    too-many-instance-attributes,
+    duplicate-code,
+    line-too-long
+
+[FORMAT]
+max-line-length=100
+
+[TYPECHECK]
+ignored-modules=types,google,google.genai
