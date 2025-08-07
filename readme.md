@@ -90,16 +90,10 @@ pytest --cov=src
 
 ## Docker
 
-### Construir imagen
+### Construir imagen y Ejecutar Contenedor
 
 ```bash
-docker build -t coffee-bot .
-```
-
-### Ejecutar contenedor
-
-```bash
-docker run --env-file .env -p 8000:8000 coffee-bot
+docker build -t coffee-bot . && docker run --env-file .env -p 8000:8000 coffee-bot
 ```
 
 ## Principios de Arquitectura
@@ -120,5 +114,16 @@ Este repositorio está configurado con GitHub Actions para ejecutar:
 - Build Docker
 
 Workflow en `.github/workflows/ci.yml`
+## Variables secretas para GitHub Actions
+
+En GitHub, ir a: `Settings > Secrets and variables > Actions` y agregar:
+
+- `GEMINI_API_KEY`: clave de Gemini API
+
+Para subir la imagen a docker hub:
+
+- `DOCKER_USERNAME`: usuario de docker hub
+- `DOCKER_PASSWORD`: passsword de docker hub
+
 
 
