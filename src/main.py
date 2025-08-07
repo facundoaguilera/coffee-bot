@@ -1,11 +1,20 @@
 from fastapi import FastAPI
+from routers.api import router, set_chat_service
+from context.rag_engine import build_index
+from services.chat_service import ChatService
+from llm.gemini_generator import GeminiGenerator
 from pathlib import Path
 from contextlib import asynccontextmanager
-from routers.api import router
+from context.vector_context import VectorContextRetriever
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-        
+    # Evento de startup
+    pdf_path = Path(__file__).parent / "data" / "coffee-recipes.pdf"
+    vectorizer = build_index(str(pdf_path), VectorContextRetriever() )
+    service = ChatService(vectorizer, GeminiGenerator())
+    set_chat_service(service)
+    
     yield  
     
 app = FastAPI(

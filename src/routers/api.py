@@ -1,9 +1,14 @@
-## routers/api.py
 from fastapi import APIRouter
 from models.models import ChatRequest, ChatResponse
-
+from services.chat_service import ChatService
 
 router = APIRouter()
+
+chat_service: ChatService | None = None
+
+def set_chat_service(service: ChatService):
+    global chat_service
+    chat_service = service
 
 @router.post("/", response_model=ChatResponse,
     summary="Conversar sobre café",
@@ -16,5 +21,5 @@ El bot:
 """,
     response_description="Respuesta generada por el bot con contexto y score")
 async def chat(req: ChatRequest):
-    answer = req
+    answer = chat_service.handle_chat(req.question.strip())
     return {"answer": answer}
