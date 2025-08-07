@@ -6,7 +6,7 @@ from src.llm.gemini_generator import GeminiGenerator
 from pathlib import Path
 from contextlib import asynccontextmanager
 from src.context.vector_context import VectorContextRetriever
-
+from fastapi.responses import RedirectResponse
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Evento de startup
@@ -25,3 +25,7 @@ app = FastAPI(
 )
 
 app.include_router(router, prefix="/chat")
+
+@app.get("/", include_in_schema=False)
+def redirect_to_docs():
+    return RedirectResponse(url="/docs")
