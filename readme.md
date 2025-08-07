@@ -3,6 +3,9 @@
 
 API conversacional basada en FastAPI que responde exclusivamente preguntas relacionadas al café, utilizando Gemini API con un enfoque RAG (Retrieval-Augmented Generation).
 
+# Visita la pagina en:
+
+https://coffee-bot-southworks.onrender.com
 
 ## Características
 
@@ -61,7 +64,7 @@ pip install -r requirements.txt
 uvicorn src.main:app --reload
 ```
 
-Endpoints de Prueba: http://localhost:8000/docs
+Endpoints de Prueba: http://localhost:8000/
 
 ## Configuración de Gemini API
 
