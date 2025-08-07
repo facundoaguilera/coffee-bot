@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from src.routers.api import router, set_chat_service
 from src.context.rag_engine import build_index
 from src.services.chat_service import ChatService
-from llm.gemini_generator import GeminiGenerator
+from src.llm.gemini_generator import GeminiGenerator
 from pathlib import Path
 from contextlib import asynccontextmanager
 from src.context.vector_context import VectorContextRetriever
