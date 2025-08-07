@@ -128,5 +128,23 @@ Para subir la imagen a docker hub:
 - `DOCKER_USERNAME`: usuario de docker hub
 - `DOCKER_PASSWORD`: passsword de docker hub
 
+## Kubernetes 
+Iniciar Minikube:
 
+minikube start 
 
+Crear la clave secret de Gemini: kubectl create secret generic coffee-bot-secret \
+  --from-literal=gemini-api-key="TU_CLAVE_DE_API"
+
+Aplica los manifiestos:
+
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+Accede al bot:
+
+minikube service coffee-bot-service
+
+Esto expondra el endpoint en el navegador 
+
+http://127.0.0.1:51887/docs

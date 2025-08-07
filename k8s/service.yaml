@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coffee-bot-service
+spec:
+  type: LoadBalancer  # o NodePort si estás en minikube
+  selector:
+    app: coffee-bot
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
