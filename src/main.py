@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pathlib import Path
 from contextlib import asynccontextmanager
-
+from routers.api import router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -15,3 +15,4 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+app.include_router(router, prefix="/chat")
