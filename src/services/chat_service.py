@@ -1,5 +1,5 @@
 ## services/chat_service.py
-from context.interfaces import IContextRetriever
+from src.context.interfaces import IContextRetriever
 from src.llm.interfaces import IResponseGenerator
 from src.validators.chat_validator import validate_question
 
