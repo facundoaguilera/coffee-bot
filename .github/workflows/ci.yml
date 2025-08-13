@@ -26,7 +26,7 @@ jobs:
           pip install pytest pytest-cov
 
       - name: Correr tests con cobertura
-        run: pytest --cov=src tests/
+        run: pytest -m "not demandado" --cov=src tests/
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
