@@ -6,7 +6,7 @@ from src.routers.api import set_chat_service
 from src.context.interfaces import IContextRetriever
 from src.llm.interfaces import IResponseGenerator
 from src.services.chat_service import ChatService
-from src.context.vector_context import VectorContextRetriever
+
 
 client = TestClient(app)
 
@@ -18,7 +18,7 @@ def test_chat_con_generator_mockeado():
         mock_generator.generate.return_value = "El Freshpresso se prepara con espresso y jugo de naranja."
 
         # Creo un retriever
-        retriever = MagicMock(spec=VectorContextRetriever)
+        retriever = MagicMock(spec=IContextRetriever)
         retriever.get_context.return_value = (["Fake contexto del Freshpresso"], 0.8)
 
         # Creo service mockeado
